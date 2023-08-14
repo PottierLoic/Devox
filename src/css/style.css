@@ -1,0 +1,26 @@
+@font-face {
+  font-family: merryweather;
+  src: url(Merriweather-Regular.ttf);
+}
+
+body {
+  background-color: #201200;
+  font-family: merryweather;
+}
+
+#content {
+  width:600px;
+  margin: auto;
+}
+
+h1 {
+  color: burlywood;
+}
+
+h3 {
+  color: burlywood;
+}
+
+p {
+  color: rgb(192, 97, 73);
+}
