@@ -1,10 +1,16 @@
+:root {
+  --background-color: #201200;
+  --title-color: #deb887;
+  --paraph-color: #c06049;
+}
+
 @font-face {
   font-family: merryweather;
   src: url(Merriweather-Regular.ttf);
 }
 
 body {
-  background-color: #201200;
+  background-color: var(--background-color);
   font-family: merryweather;
 }
 
@@ -14,18 +20,22 @@ body {
 }
 
 h1 {
-  color: burlywood;
+  color: var(--title-color);
 }
 
 h3 {
-  color: burlywood;
+  color: var(--title-color);
 }
 
 p {
-  color: rgb(192, 97, 73);
+  color: var(--paraph-color);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+pre {
+  border-radius: 10px;
 }

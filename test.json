@@ -1,0 +1,14 @@
+{
+  "id": 0,
+  "title": "A Minesweeper AI that play like us.",
+  "sections": [
+    {
+       "section_number": 0,
+       "title": "",
+       "content": [
+          { "type": "texte", "contenu": "There are many AI that use complex way to deal with games and problems, my main goal was to create an AI that play like we do." },
+          { "type": "texte", "contenu": "Oue et ici c'est le deuxieme texte" }
+       ]
+    }
+ ]
+}
