@@ -118,7 +118,10 @@ link-end:hover {
  color: var(--inaccessible-color)
 }
 
-
 pre {
+  border-radius: 10px;
+}
+
+img {
   border-radius: 10px;
 }

@@ -15,7 +15,7 @@
 
     <h1><span class="entry-symbol">-/</span> Minesweeper AI, not so good but realistic.</h1>
 
-    <p>After seeing some videos of AI resolving minesweeper, I was a bit dissapointed when looking at the strategies used.</p>
+    <p>After seeing some videos of AI resolving minesweeper, I was a bit disapointed when looking at the strategies used.</p>
     <p>Yeah they are really fast, but they all use exactly the same way of solving it: <strong>backtracking</strong>.</p>
 
     <p>A recursive technique which consists on building your solution one step at a time, and skipping the actual opportunity as soon as it doesn't fit your constraints.</p>
@@ -24,8 +24,8 @@
 
     <h2><span class="section-symbol">$</span> What is the idea then ?</h2>
 
-    <p>I would like the AI to resolve it like a human would, but how do we resolve a MineSweeper game ?</p>
-    <p>I played a little bit on this game to realise how I was dealing with it, the strategy that I used during thoses is quite simple:</p>
+    <p>I would like my AI to resolve it like a human would, but, <strong>how do we resolve a MineSweeper game ?</strong></p>
+    <p>I played a little bit to realise how I was dealing with the different situations, the strategy that I used is quite simple:</p>
 
     <div class="container">
       <div class="left-section">
@@ -61,7 +61,21 @@
           </li>
         </ul>
       </div>
-      <div class="right-section"></div>
+      <div class="right-section">
+        <pre class="language-v"><code> 
+struct Here_is_a_v_struct {
+  mut:	
+    var_a [0x2000]u8
+    var_b [0x80]u8
+}
+
+fn (mut test Here_is_a_v_struct) init() {
+  var_a = 0
+  var_b = 0
+} </code></pre> 
+      </div>
+
+      <h2><span class="section-symbol">$</span> The implementation</h2>
     </div>
   </div>
 </body>
