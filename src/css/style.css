@@ -1,10 +1,11 @@
 :root {
   --background-color: #000618;
   --title-color: #90fff9;
-  --paraph-color: #cffcfa;
+  --paraph-color: #e6fffe;
   --entry-symbol-color: #809dff;
   --section-symbol-color: #809dff;
   --highlighted-color: #c884ff;
+  --highlighted-color-2: #a8ffe9;
   --inaccessible-color: #ff4d5c;
 }
 
@@ -24,13 +25,25 @@ body {
   margin: auto;
 }
 
-.container {
+.container-left-bigger {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 10px;
+}
+
+.container-right-bigger {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 10px;
+}
+
+.container-even {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
-.left-section {
+.left-section-column {
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -38,10 +51,24 @@ body {
   justify-content: center;
 }
 
-.right-section {
+.left-section-row {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section-column {
   grid-column: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section-row {
+  grid-column: 2;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -90,7 +117,7 @@ strong {
 }
 
 a {
-  color: var(--paraph-color);
+  color: var(--highlighted-color-2);
   position: relative;
   text-decoration: none;
 }
@@ -107,14 +134,13 @@ a:hover::before {
   width: 100%;
 }
 
-link-end {
+.link-end {
   color: var(--paraph-color);
   position: relative;
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
-link-end:hover {
+.link-end:hover {
  color: var(--inaccessible-color)
 }
 
@@ -124,4 +150,5 @@ pre {
 
 img {
   border-radius: 10px;
+  margin: 20px;
 }
