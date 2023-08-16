@@ -1,14 +1,49 @@
 {
   "id": 0,
+  "date": "16/08/2023",
   "title": "A Minesweeper AI that play like us.",
   "sections": [
-    {
-       "section_number": 0,
-       "title": "",
-       "content": [
-          { "type": "texte", "contenu": "There are many AI that use complex way to deal with games and problems, my main goal was to create an AI that play like we do." },
-          { "type": "texte", "contenu": "Oue et ici c'est le deuxieme texte" }
-       ]
-    }
- ]
+      {
+         "id": 0,
+         "title": "Minesweeper AI, not so good but realistic.",
+         "type": "introduction",
+         "content": [
+            { "type": "text", "content": "After seeing some videos of AI resolving minesweeper, I was a bit disapointed when looking at the strategies used." },
+            { "type": "text", "content": "Yes they are really fast, but they all use exactly the same way of solving it: <strong>backtracking</strong>." },
+            { "type": "text", "content": "A recursive technique which consists on building your solution one step at a time, and skipping the actual opportunity as soon as it doesn't fit your constraints." },
+            { "type": "text", "content": "Involving a lot of things to remember, this strategy is not something that is used by humans (maybe some aliens can do it in the end where there are like 2 or 3 mines left)." },
+            { "type": "text", "content": "So, as excellent as it can be, it is only based on one strategy, which is kinda boring in the end." }
+         ]
+      },
+      {
+         "id": 1,
+         "title": "What is the idea then ?",
+         "type": "basic",
+         "content": [
+            { "type": "text", "content": "I would like my AI to resolve it like a human would, but, <strong>how do we resolve a MineSweeper game ?</strong>" },
+            { "type": "text", "content": "I played a little bit to realise how I was dealing with the different situations, the strategy that I used is quite simple:" },
+            { 
+               "type": "container-left-bigger",
+               "left": [
+                  { 
+                     "type": "list", "items": [
+                        { 
+                           "type": "text", 
+                           "content": [
+                              { "type": "text", "content": "Looking for locations with the same number of <strong>unmarked tiles</strong> and <strong>remaining undiscovered bombs</strong>." },
+                              { "type": "text", "content": "We can then simply mark all the tiles around without even thinking." }
+                           ] 
+                        }
+                     ] 
+                  }
+               ], 
+               "right": [
+                  { "type": "image", "path": "img/minesweeper_strat1.png" },
+                  { "type": "text", "content": ">" },
+                  { "type": "image", "path": "img/minesweeper_strat2.png"}
+               ]
+            }
+         ]
+      }
+   ]
 }

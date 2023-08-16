@@ -59,31 +59,51 @@
     </div>
     <ul>
       <li>
-        <p>Then we have the pattern recognition, we are looking for some simple patterns that assure the placement of 1, 2 or even 3 mines sometimes !</p>
-        <p>Once they have been discovered, we can do the first and second strategy again in the area and maybe unlock the situation.</p>
+        <p>And finally we have the pattern recognition, we are looking for some simple patterns that assure the placement of 1, 2 or even 3 mines sometimes !</p>
+        <p>A really helpful website listing patterns can be found <a href="https://minesweeper.online/help/patterns">here</a>, it will explain them soo much better than me. But I'll explain one here anyway.</p>
       </li>
     </ul>
 
-    <p>Here are some images J'EN AI PAS</p>
+    
+    <div class="container-even">
+      <div class="left-section-column">
+        <p>The 1 at the top give us the certainty that there is a mine on the two top-most green cells.</p>
+        <p>By discovering this, we can peacefully unveil the bottom cell because of the second 1.</p>
+      </div>
+      <div class="right-section-row">
+        <img src="img/minesweeper_pattern1.png">
+        <img src="img/minesweeper_pattern2.png">
+      </div>
+    </div>
+    <p>Once we discovered some new tiles, we just have to repeat theses steps again an again until the end of this MinseSweeper grid !</p>
+    
 
     <h2><span class="section-symbol">$</span> The implementation</h2>
+    <p>I decided to use Python, this AI is the first "serious" project i've done since I started programming, so I wanted to use a language that I was familiar with.</p>
+    <p>As you could expect, the code is not very well written, but I'll try to explain it as good as possible !</p>
+    <br>
+    <p>First of all, we need to implement the game, we'll use Tkinter for graphics and that's all.</p>
+    
+    <p>Creating the board is really simple:</p>
+<pre class="language-python"><code>class Board():
+  def __init__(self):
+      self.board = []
+      self.finished = False
+      
+      for i in range(HEIGHT):
+        self.board.append([])
+        for j in range(WIDTH):
+            self.board[i].append(0)</code></pre> 
 
 
-
-
-
-
-<pre class="language-v"><code>struct Here_is_a_v_struct {
-  mut:	
-    var_a [0x2000]u8
-    var_b [0x80]u8
-}
-
-fn (mut test Here_is_a_v_struct) init() {
-  var_a = 0
-  var_b = 0
-} </code></pre> 
-    </div>
+  <p>Then we just randomly add bombs:</p>
+<pre class="language-python"><code> for i in range(MINE_AMOUNT):
+  while True:
+      rx=random.randint(0, WIDTH-1)
+      ry=random.randint(0, HEIGHT-1)
+      if self.board[ry][rx]!="x":
+          self.board[ry][rx]="x"
+          break</code></pre> 
   </div>
 </body>
 </html>
