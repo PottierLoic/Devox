@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/prism.css" />
+  <script src="script/prism.js"></script>
+  <title>Minesweeper AI, not so good but reallistic</title>
+</head>
+<body>
+  <div id="content">
+    <p><a href="index.html">devox</a> \ <a href="posts.html">posts</a> \ <span class="link-end">post id in database</span></p>
+    <div class="dashed-line"></div>
+
+    <h1><span class="entry-symbol">-/</span> Minesweeper AI, not so good but realistic.</h1>
+
+    <p>After seeing some videos of AI resolving minesweeper, I was a bit dissapointed when looking at the strategies used.</p>
+    <p>Yeah they are really fast, but they all use exactly the same way of solving it: <strong>backtracking</strong>.</p>
+
+    <p>A recursive technique which consists on building your solution one step at a time, and skipping the actual opportunity as soon as it doesn't fit your constraints.</p>
+    <p>Involving a lot of things to remember, this strategy is not something that is used by humans (maybe some aliens can do it in the end where there are like 2 or 3 mines left).</p>
+    <p>So, as excellent as it can be, it is only based on one strategy, which is kinda boring in the end.</p>
+
+    <h2><span class="section-symbol">$</span> What is the idea then ?</h2>
+
+    <p>I would like the AI to resolve it like a human would, but how do we resolve a MineSweeper game ?</p>
+    <p>I played a little bit on this game to realise how I was dealing with it, the strategy that I used during thoses is quite simple:</p>
+
+    <div class="container">
+      <div class="left-section">
+        <ul>
+          <li>
+            <p>Looking for places with the same number of <strong>unmarked tiles</strong> and <strong>remamining bombs to discover</strong>.</p>
+            <p>We can then simply mark all the tiles around without even thinking.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="right-section">
+        <img src="img/minesweeper_strat1.png">
+      </div>
+
+      <div class="left-section">
+        <ul>
+          <li>
+            <p>Very simillar to the first one, we'll search for tiles that have the same number of <strong>marked bombs</strong> around and <strong>amount of bombs written</strong> on them.</p>
+            <p>This way, we can just discover all of the remaining tiles around with the certainty that they are safe. </p>
+            <p>Using theses tro first strategies can make you finish <strong>really</strong> simple games, when increasing the amount of bombs, the winrate will drop as you'll need to gamble a lot more.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="right-section">
+        <img src="img/minesweeper_strat1.png">
+      </div>
+
+      <div class="left-section">
+        <ul>
+          <li>
+            <p>Then we have the pattern recognition, we are looking for some simple patterns that assure the placement of 1, 2 or even 3 mines sometimes !</p>
+            <p>Once they have been discovered, we can do the first strategy again in the area and maybe unlock the situation.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="right-section"></div>
+    </div>
+  </div>
+</body>
+</html>
