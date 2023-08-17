@@ -28,34 +28,82 @@ function display_post(post_id) {
 }
 
 function handle_post(doc) {
-  data = doc.data()
-  document.title = data.title
-  content_div.innerHTML += `<p><a href="index.html">devox</a> \\ <a href="posts.html">posts</a> \\ <span class="link-end">${doc.id}</span></p>`
-  content_div.innerHTML += `<div class="dashed-line"></div>`
+  const data = doc.data();
+  document.title = data.title;
+
+  let postContent = `<p><a href="index.html">devox</a> \\ <a href="posts.html">posts</a> \\ <span class="link-end">${doc.id}</span></p>`;
+  postContent += `<div class="dashed-line"></div>`;
 
   data.sections.forEach(section => {
-    if (section.type == "introduction") {
-      content_div.innerHTML += `<h1><span class="entry-symbol">-/</span>${section.title}</h1>`
-      section.content.forEach(field => {
-        if (field.type == "text" ) {
-          content_div.innerHTML += `<p>${field.content}</p>`
-        } else if (field.type == "image") {
-          content_div.innerHTML += `<img src="${field.path}"></img>`
-        } else if (field.type.startsWith("container")) {
-          handle_container(field);
-        }
-      });
+    let sectionContent = '';
+    if (section.type === "introduction") {
+      sectionContent += `<h1><span class="entry-symbol">-/</span> ${section.title}</h1>`;
+    } else if (section.type === "basic") {
+      sectionContent += `<h2><span class="section-symbol">$</span> ${section.title}</h2>`;
     }
+
+    section.content.forEach(field => {
+      sectionContent += choose_handler(field);
+    });
+
+    postContent += sectionContent;
   });
+
+  content_div.innerHTML = postContent;
 }
 
+function choose_handler(item) {
+  if (item.type === 'text') {
+    return handle_text(item.content);
+  } else if (item.type === 'image') {
+    return handle_image(item.path);
+  } else if (item.type.startsWith('container')) {
+    return handle_container(item);
+  } else if (item.type === 'list') {
+    return handle_list(item.items);
+  }
+}
 
 function handle_container(field) {
-  console.log("handling container");
+  let container_data = `<div class="${field.type}">`;
+
+  container_data += `<div class="${field.left_type}">`;
+  field.left.forEach(child => {
+    container_data += choose_handler(child);
+  });
+  container_data += `</div>`;
+
+  container_data += `<div class="${field.right_type}">`;
+  field.right.forEach(child => {
+    container_data += choose_handler(child);
+  });
+  container_data += `</div>`;
+
+  container_data += `</div>`;
+  return container_data;
 }
 
+function handle_list(items) {
+  let list_data = `<ul>`;
+
+  items.forEach(item => {
+    list_data += `<li>`;
+    list_data += choose_handler(item);
+    list_data += `</li>`;
+  });
+
+  list_data += `</ul>`;
+  return list_data;
+}
+
+function handle_text(text) {
+  return `<p>${text}</p>`;
+}
+
+function handle_image(src) {
+  return `<img src="${src}"></img>`;
+}
 
 /* Getting document references to add data to the page */
 let content_div = document.getElementById('content')
-
 display_post("pqlxTv7ymzDiwhxyav58")

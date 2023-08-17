@@ -1,5 +1,4 @@
 {
-  "id": 0,
   "date": "16/08/2023",
   "title": "A Minesweeper AI that play like us.",
   "sections": [
@@ -29,20 +28,21 @@
                      "type": "list", "items": [
                         {
                            "type": "text",
-                           "content": [
-                              { "type": "text", "content": "Looking for locations with the same number of <strong>unmarked tiles</strong> and <strong>remaining undiscovered bombs</strong>." },
-                              { "type": "text", "content": "We can then simply mark all the tiles around without even thinking." }
-                           ]
+                           "content": "Looking for locations with the same number of <strong>unmarked tiles</strong> and <strong>remaining undiscovered bombs</strong>."
+                        },
+                        {
+                           "type": "text",
+                           "content": "We can then simply mark all the tiles around without even thinking."
                         }
                      ]
                   }
-               ],
-               "right": [
-                  { "type": "image", "path": "img/minesweeper_strat1.png" },
-                  { "type": "text", "content": ">" },
-                  { "type": "image", "path": "img/minesweeper_strat2.png"}
                ]
             }
+         ],
+         "right": [
+            { "type": "image", "path": "img/minesweeper_strat1.png" },
+            { "type": "text", "content": ">" },
+            { "type": "image", "path": "img/minesweeper_strat2.png"}
          ]
       }
    ]
