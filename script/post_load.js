@@ -18,25 +18,32 @@ function handle_post(doc) {
   const data = doc.data();
   document.title = data.title;
 
-  let postContent = `<p><a href="index.html">devox</a> \\ <a href="posts.html">posts</a> \\ <span class="link-end">${doc.id}</span></p>`;
-  postContent += `<div class="dashed-line"></div>`;
+  let post_content = `<p><a href="index.html">devox</a> \\ <a href="posts.html">posts</a> \\ <span class="link-end">${doc.id}</span></p>`;
+  post_content += `<div class="dashed-line"></div><div class="container-even">`;
+  post_content += `<div class="header-links"><p><a href="${data.github_link}">[GitHub]</a></p></div>`
+  post_content += `<div class="header-tags">`
+  data.tags.forEach(tag => {
+    // TODO MAKE TAG SEARCH
+    post_content += `<p><a href="">&nbsp;[${tag}]&nbsp;</a></p>`
+  });
+  post_content += `</div></div><div class="dashed-line"></div>`
 
   data.sections.forEach(section => {
-    let sectionContent = '';
+    let section_content = '';
     if (section.type === "introduction") {
-      sectionContent += `<h1><span class="entry-symbol">-/</span> ${section.title}</h1>`;
+      section_content += `<h1><span class="symbol">-/</span> ${section.title}</h1>`;
     } else if (section.type === "basic") {
-      sectionContent += `<h2><span class="section-symbol">$</span> ${section.title}</h2>`;
+      section_content += `<h2><span class="symbol">$</span> ${section.title}</h2>`;
     }
 
     section.content.forEach(field => {
-      sectionContent += choose_handler(field);
+      section_content += choose_handler(field);
     });
 
-    postContent += sectionContent;
+    post_content += section_content;
   });
 
-  content_div.innerHTML = postContent;
+  content_div.innerHTML = post_content;
 }
 
 function choose_handler(item) {
