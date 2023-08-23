@@ -1,40 +1,4 @@
-/* <script type="module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD2FiGvROENKdDLdQL1xT2C5EddUZnlw8w",
-  authDomain: "devox-4e2cc.firebaseapp.com",
-  projectId: "devox-4e2cc",
-  storageBucket: "devox-4e2cc.appspot.com",
-  messagingSenderId: "50545599343",
-  appId: "1:50545599343:web:7f971c65e9e1c834f5fe9a",
-  measurementId: "G-JZPN09M8QR"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-</script> */
-
 function display_post(post_id) {
-  /* Connecting to Firebase db */
-  const firebaseConfig = {
-    apiKey: 'AIzaSyD2FiGvROENKdDLdQL1xT2C5EddUZnlw8w',
-    authDomain: 'devox-4e2cc.firebaseapp.com',
-    projectId: 'devox-4e2cc',
-    storageBucket: 'devox-4e2cc.appspot.com',
-    messagingSenderId: '50545599343',
-    appId: '1:50545599343:web:7f971c65e9e1c834f5fe9a'
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
   /* Retrieving data */
   db.collection('posts').get()
     .then(querySnapshot => {
@@ -135,6 +99,11 @@ function handle_text(text) {
 function handle_image(src) {
   return `<img src="${src}"></img>`;
 }
+
+
+/* Connecting to Firebase db */
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 /* Getting document references to add data to the page */
 let content_div = document.getElementById('content')

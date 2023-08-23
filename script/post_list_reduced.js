@@ -15,15 +15,6 @@ function display_post_list_reduced() {
   });
 }
 
-/* Connecting to Firebase db */
-const firebaseConfig = {
-  apiKey: 'AIzaSyD2FiGvROENKdDLdQL1xT2C5EddUZnlw8w',
-  authDomain: 'devox-4e2cc.firebaseapp.com',
-  projectId: 'devox-4e2cc',
-  storageBucket: 'devox-4e2cc.appspot.com',
-  messagingSenderId: '50545599343',
-  appId: '1:50545599343:web:7f971c65e9e1c834f5fe9a'
-};
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
