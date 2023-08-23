@@ -1,3 +1,27 @@
+/* <script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyD2FiGvROENKdDLdQL1xT2C5EddUZnlw8w",
+  authDomain: "devox-4e2cc.firebaseapp.com",
+  projectId: "devox-4e2cc",
+  storageBucket: "devox-4e2cc.appspot.com",
+  messagingSenderId: "50545599343",
+  appId: "1:50545599343:web:7f971c65e9e1c834f5fe9a",
+  measurementId: "G-JZPN09M8QR"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+</script> */
+
 function display_post(post_id) {
   /* Connecting to Firebase db */
   const firebaseConfig = {
@@ -60,6 +84,8 @@ function choose_handler(item) {
     return handle_container(item);
   } else if (item.type === 'list') {
     return handle_list(item.items);
+  }  else if (item.type === 'code') {
+    return handle_code(item);
   }
 }
 
@@ -80,6 +106,13 @@ function handle_container(field) {
 
   container_data += `</div>`;
   return container_data;
+}
+
+function handle_code(field) {
+  let block_data = `<pre class="language-${field.language}"><code>`
+  block_data += field.content;
+  block_data += `</code></pre>`
+  return block_data
 }
 
 function handle_list(items) {
@@ -105,4 +138,7 @@ function handle_image(src) {
 
 /* Getting document references to add data to the page */
 let content_div = document.getElementById('content')
-display_post("pqlxTv7ymzDiwhxyav58")
+
+const selected_post_id = localStorage.getItem('selected_post_id');
+
+display_post(selected_post_id);

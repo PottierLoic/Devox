@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
   <title>DevOx</title>
 </head>
 <body>
@@ -14,12 +16,14 @@
     <h1>-/ Welcome to DevOx !</h1>
     <p>.. irl: Loïc Pottier</p>
     <br>
+
     <p>.. New developper that loves to learn new things.</p>
     <p>.. Mainly coding in Vlang, C and C#.</p>
     <p>.. Slowly discovering a passion for low level dev...</p>
     <p>.. and for <strong><a href="games.html">video games</a></strong> developpement too with Lunary Labs.(need to put a link here)</p>
     <p>.. I'm making <strong><a href="musics.html">musics</a></strong> for fun, mainly piano.</p>
     <br>
+
     <h3>-/ Discover some projects here:</h3>
     <p><a href="">.- Fractal generator.</a> <a href="">[Vlang]</a></p>
     <p><a href="">.- VBoy my gameboy emulator.</a> <a href="">[Vlang]</a></p>
@@ -27,9 +31,14 @@
     <p><a href="">.- Minesweeper AI, that think like us.</a> <a href="">[Python]</a></p>
     <p><a href="">.- DevOx, this blog.</a> <a href="">[HTML]</a> <a href="">[CSS]</a> <a href="">[SQL]</a></p>
     <p><a href="">.- SandBox game</a> <a href="">[Python]</a></p>
+    <br>
 
     <h3>-/ Last posts:</h3>
-    <p><a href="post-test.html">Minesweeper AI, not so good but realistic.</a></p>
+    <div id="post-list"></div>
+    <br>
+
+    <p>Want more ? <a href="posts.html">Check the complete list.</a></p>
   </div>
+  <script src="script/post_list_reduced.js"></script>
 </body>
 </html>
