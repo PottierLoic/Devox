@@ -23,7 +23,7 @@ function handle_post(doc) {
   post_content += `<div class="header-tags">`
   data.tags.forEach(tag => {
     // TODO MAKE TAG SEARCH
-    post_content += `<p><a href="posts.html" link_type="tag">&nbsp;[${tag}]&nbsp;</a></p>`
+    post_content += `<p><a href="posts.html" link-type="tag">&nbsp;[${tag}]&nbsp;</a></p>`
   });
   post_content += `</div></div><div class="dashed-line"></div>`
 
@@ -43,7 +43,7 @@ function handle_post(doc) {
   });
 
   content_div.innerHTML = post_content;
-  link_handler()
+  link_handler();
 }
 
 function choose_handler(item) {
