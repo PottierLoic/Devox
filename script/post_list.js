@@ -1,6 +1,18 @@
 function full_post_list() {
   let list_data = `<div class="dashed-line-spaced"></div>`;
-  //TODO: display actual tags
+
+  list_data += `<div class="header-tags"><p></p>`;
+  let tags_json = localStorage.getItem('search_tags');
+  let tags = [];
+  if (tags_json != null) {
+    tags = JSON.parse(tags_json);
+    tags.forEach(tag => {
+      list_data += `<p><a href="" link-type="tag">&nbsp;[${tag}]&nbsp;</a></p>`;
+    });
+  }
+  list_data += `</div>`;
+
+
   list_data += `<div class="dashed-line"></div>`;
   list_data += `<h1><span class="symbol">-/</span> Here are all my posts:</h1>`;
   /* Retrieving data */
@@ -9,26 +21,24 @@ function full_post_list() {
   .then(querySnapshot => {
     querySnapshot.forEach(doc => {
       const data = doc.data();
-      list_data += `<p><a href="post-page.html" link-type="post" db-id="${doc.id}">.- ${data.title}</a>`;
-      data.tags.forEach(tag => {
-        list_data +=`<a href="posts.html" link-type="tag">&nbsp;[${tag}]&nbsp;</a>`;
+      let disp = true;
+      tags.forEach(tag => {
+        if (data.tags.includes(tag) === false){
+          disp = false;
+        }
       });
-      list_data += `</p>`;
+      if (disp)  {
+        console.log(tags_json);
+        list_data += `<p><a href="post-page.html" link-type="post" db-id="${doc.id}">.- ${data.title}</a>`;
+        data.tags.forEach(tag => {
+          list_data +=`<a href="posts.html" link-type="tag">&nbsp;[${tag}]&nbsp;</a>`;
+        });
+        list_data += `</p>`;
+      }
     });
     list_data += `</div>`;
     content_div.innerHTML += list_data;
-    const post_list = document.getElementById('post-list');
-    post_list.addEventListener('click', (event) => {
-      if (event.target.tagName === 'A') {
-        if (event.target.getAttribute('link-type') === 'post') {
-          const db_id = event.target.getAttribute('db-id');
-          localStorage.setItem('selected_post_id', db_id);
-        } else if (event.target.getAttribute('link-type') === 'tag') {
-          const tag = event.target.textContent;
-          add_search_tag(tag.substring(2, tag.length - 2));
-        }
-      }
-    });
+    link_handler();
   })
   .catch(error => {
     console.error('Error while retrieving documents data: ', error);
