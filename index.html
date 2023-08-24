@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/palette_selector.css" />
   <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
   <script src="script/firebase_config.js"></script>
@@ -12,8 +13,17 @@
   <title>DevOx</title>
 </head>
 <body>
+  <div id="palette-selector">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <div class="circle"></div>
   <div id="content">
     <p><span class="link-end">devox</span> \</p>
+    <button id="testbutton"></button>
     <div class="dashed-line-spaced"></div>
     <div class="dashed-line"></div>
 
@@ -44,5 +54,6 @@
     <p>Want more ? <a href="posts.html">Check the complete list.</a></p>
   </div>
   <script src="script/post_list_reduced.js"></script>
+  <script src="script/palette_selector.js"></script>
 </body>
 </html>

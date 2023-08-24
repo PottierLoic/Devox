@@ -32,17 +32,6 @@
 } */
 
 /* green/blue theme */
-/* :root {
-  --background-color: #383F51;
-  --title-color: #D2F898;
-  --paraph-color: #06D6A0;
-  --symbol-color: #E56399;
-  --highlighted-color: #22AED1;
-  --highlighted-color-2: #22AED1;
-  --inaccessible-color: #ff4d5c;
-} */
-
-/* green/blue theme */
 :root {
   --background-color: #383F51;
   --title-color: #D2F898;
@@ -62,6 +51,7 @@ body {
   background-color: var(--background-color);
   color: var(--paraph-color);
   font-family: merryweather;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #content {
@@ -136,6 +126,7 @@ body {
   margin-top: 20px;
   margin-bottom: 100px;
   background-image: repeating-linear-gradient(90deg, transparent, transparent 5px, var(--paraph-color) 5px, var(--paraph-color) 10px);
+  transition: background-image 0.3s ease;
   content: "";
 }
 
@@ -146,40 +137,49 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
   background-image: repeating-linear-gradient(90deg, transparent, transparent 5px, var(--paraph-color) 5px, var(--paraph-color) 10px);
+  transition: background-image 0.3s ease;
   content: "";
 }
 
 h1 {
   color: var(--title-color);
+  transition: color 0.3s ease;
 }
 
 h2 {
   color: var(--title-color);
+  transition: color 0.3s ease;
 }
 
 h3 {
   color: var(--title-color);
+  transition: color 0.3s ease;
 }
 
 p {
   color: var(--paraph-color);
+  transition: color 0.3s ease;
 }
 
 ul {
   color: var(--paraph-color);
+  transition: color 0.3s ease;
 }
 
 .symbol {
-  color: var(--symbol-color)
+  color: var(--symbol-color);
+  transition: color 0.3s ease;
 }
 
 strong {
   color: var(--highlighted-color);
+  transition: color 0.3s ease;
   font-weight: normal;
 }
 
 a {
   color: var(--highlighted-color-2);
+  transition: color 0.3s ease;
   position: relative;
   text-decoration: none;
 }
@@ -190,7 +190,7 @@ a::before {
   height: 2px;
   bottom: -2px;
   background-color: var(--title-color);
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 a:hover::before {
   width: 100%;

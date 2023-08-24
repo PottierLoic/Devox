@@ -12,7 +12,6 @@ function full_post_list() {
   }
   list_data += `</div>`;
 
-
   list_data += `<div class="dashed-line"></div>`;
   list_data += `<h1><span class="symbol">-/</span> Here are all my posts:</h1>`;
   /* Retrieving data */
