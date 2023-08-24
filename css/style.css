@@ -129,12 +129,22 @@ body {
   justify-content: right;
 }
 
-.dashed-line {
+.dashed-line-spaced {
   position: relative;
   width: 100%;
   height: 1px;
   margin-top: 20px;
   margin-bottom: 100px;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 5px, var(--paraph-color) 5px, var(--paraph-color) 10px);
+  content: "";
+}
+
+.dashed-line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   background-image: repeating-linear-gradient(90deg, transparent, transparent 5px, var(--paraph-color) 5px, var(--paraph-color) 10px);
   content: "";
 }

@@ -4,7 +4,6 @@ function display_post(post_id) {
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
         if (doc.id == post_id ) {
-          // Processing data (should be taken apart)
           handle_post(doc);
         }
       });
@@ -19,7 +18,7 @@ function handle_post(doc) {
   document.title = data.title;
 
   let post_content = `<p><a href="index.html">devox</a> \\ <a href="posts.html">posts</a> \\ <span class="link-end">${doc.id}</span></p>`;
-  post_content += `<div class="dashed-line"></div><div class="container-even">`;
+  post_content += `<div class="dashed-line-spaced"></div><div class="container-even">`;
   post_content += `<div class="header-links"><p><a href="${data.github_link}">[GitHub]</a></p></div>`
   post_content += `<div class="header-tags">`
   data.tags.forEach(tag => {
@@ -106,7 +105,6 @@ function handle_text(text) {
 function handle_image(src) {
   return `<img src="${src}"></img>`;
 }
-
 
 /* Connecting to Firebase db */
 firebase.initializeApp(firebaseConfig);
