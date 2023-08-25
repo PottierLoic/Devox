@@ -12,8 +12,12 @@ db.collection('colors').get()
       var circle = document.createElement("div");
       circle.classList.add("circle");
       circle.style.background = gradient;
-
       palette.appendChild(circle);
+      if (localStorage.getItem("palette_id") == doc.id) {
+        circle.id = "selected";
+        palette.prepend(circle);
+      }
+
 
       circle.addEventListener("click", (event) => {
         var circles = document.querySelectorAll('.circle');
@@ -28,6 +32,15 @@ db.collection('colors').get()
         document.documentElement.style.setProperty('--highlighted-color', colors[4]);
         document.documentElement.style.setProperty('--highlighted-color-2', colors[5]);
         document.documentElement.style.setProperty('--inaccessible-color', colors[6]);
+        localStorage.setItem('background-color', colors[0]);
+        localStorage.setItem('title-color', colors[1]);
+        localStorage.setItem('paraph-color', colors[2]);
+        localStorage.setItem('symbol-color', colors[3]);
+        localStorage.setItem('highlighted-color', colors[4]);
+        localStorage.setItem('highlighted-color2', colors[5]);
+        localStorage.setItem('inaccessible-color', colors[6]);
+        localStorage.setItem('palette_id', doc.id);
+        palette.prepend(circle);
       })
 
       palette_amount++;
