@@ -18,5 +18,8 @@
   height: 40px;
   margin: 5px;
   border-radius: 50%;
-  background-color: var(--background-color);
+}
+
+.circle#selected {
+  border: 1px solid white;
 }
